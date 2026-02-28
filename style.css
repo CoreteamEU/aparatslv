@@ -266,6 +266,101 @@ h1 {
     opacity: 0.8;
 }
 
+/* Bird and Golden Frame */
+.bird-container {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 8s ease-in-out infinite;
+}
+
+.golden-frame {
+    padding: 12px;
+    background: linear-gradient(135deg,
+            #d4af37 0%,
+            #f9f295 25%,
+            #e6b800 50%,
+            #d4af37 75%,
+            #8a6d3b 100%);
+    border-radius: 4px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+        /* Inner highlight */
+        inset 0 0 15px rgba(0, 0, 0, 0.3),
+        /* Inner shadow for depth */
+        0 0 20px rgba(212, 175, 55, 0.25);
+    /* Outer golden glow */
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+/* Add a 3D bevel look */
+.golden-frame::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 2px solid #8a6d3b;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Shine overlay */
+.golden-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 45%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.1) 55%,
+            transparent 100%);
+    background-size: 200% 200%;
+    animation: shine 4s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -100% -100%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.bird-img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
 /* Responsive */
 @media (max-width: 480px) {
     .glass-card {
