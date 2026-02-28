@@ -1,0 +1,223 @@
+:root {
+    --bg-color: #0d0e15;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --accent: #ff0055;
+    --accent-glow: rgba(255, 0, 85, 0.5);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background dynamic gradients */
+.background-animation {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(30, 10, 60, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 85, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 40%);
+    z-index: -1;
+    animation: rotateBg 30s linear infinite;
+}
+
+@keyframes rotateBg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Typography styles */
+h1 {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* Cyberpunk-ish Glitch effect on hover */
+.glitch {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.glitch:hover {
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #00ffff;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--accent);
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 83px, 0); }
+    20% { clip: rect(61px, 9999px, 8px, 0); }
+    40% { clip: rect(78px, 9999px, 49px, 0); }
+    60% { clip: rect(54px, 9999px, 7px, 0); }
+    80% { clip: rect(31px, 9999px, 74px, 0); }
+    100% { clip: rect(19px, 9999px, 95px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    20% { clip: rect(27px, 9999px, 7px, 0); }
+    40% { clip: rect(89px, 9999px, 55px, 0); }
+    60% { clip: rect(12px, 9999px, 66px, 0); }
+    80% { clip: rect(81px, 9999px, 33px, 0); }
+    100% { clip: rect(43px, 9999px, 16px, 0); }
+}
+
+/* Interactive Contact Button */
+.contact-btn {
+    margin-top: 1.5rem;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: rgba(255,255,255,0.4);
+    box-shadow: 0 15px 40px -5px rgba(255, 0, 85, 0.3);
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.btn-text {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.btn-email {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-top: 0.25rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 3rem 1.5rem;
+    }
+    
+    .contact-btn {
+        padding: 0.875rem 2rem;
+    }
+}
