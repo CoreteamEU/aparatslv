@@ -1,25 +1,50 @@
-name: Cache Busting
+name: Cache Busting Deployment
 
 on:
   push:
-    branches:
-      - main  # Adjust this if your default branch is named 'master'
+    branches: ["main"]
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps:deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add Versioning to Assets
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Inject Versioning (Cache Busting)
         run: |
           VERSION=$(git rev-parse --short HEAD)
+          echo "Busting cache with version: $VERSION"
+          # Replace placeholder in HTML
           sed -i "s/{{VERSION}}/$VERSION/g" index.html
+          # Append version to image in CSS
           sed -i "s/2001_locmelis.jpg/2001_locmelis.jpg?v=$VERSION/g" style.css
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: . # The folder the action should deploy.
-          branch: gh-pages # The branch the action should deploy to.
+          # Upload the entire repository (which now has the injected versions)
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
