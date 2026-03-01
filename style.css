@@ -259,7 +259,7 @@ h1 {
 }
 
 .btn-email {
-    color: var(--accent);
+    color: var(--text-primary);
     font-size: 0.85rem;
     font-weight: 400;
     margin-top: 0.25rem;
