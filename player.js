@@ -74,49 +74,46 @@ document.addEventListener('DOMContentLoaded', () => {
         const trackItems = document.querySelectorAll('.track-item');
 
         trackItems.forEach(item => {
-            const playBtn = item.querySelector('.play-btn');
-
-            playBtn.addEventListener('click', () => {
+            // Updated: Listener now on the whole 'item' (row)
+            item.addEventListener('click', () => {
+                const playBtn = item.querySelector('.play-btn');
                 const src = item.getAttribute('data-src');
                 const title = item.querySelector('.track-title').textContent;
                 const totalLength = item.querySelector('.track-length').textContent;
 
-                // Find parent playlist card to scope the player updates
                 const playlistCard = item.closest('.playlist-card');
                 const audioEl = playlistCard.querySelector('.html5-audio');
                 const npTitle = playlistCard.querySelector('.np-title');
                 const timeTotal = playlistCard.querySelector('.time-total');
-                const playBtnsInCard = playlistCard.querySelectorAll('.play-btn');
+                const allBtnsInSite = document.querySelectorAll('.play-btn');
+                const allItemsInSite = document.querySelectorAll('.track-item');
 
-                // If clicking the currently playing track
+                // If clicking the currently playing track (toggle pause)
                 if (currentlyPlayingAudio === audioEl && currentlyPlayingBtn === playBtn && !audioEl.paused) {
                     audioEl.pause();
                     playBtn.textContent = '▶';
                     playBtn.classList.remove('playing');
+                    item.classList.remove('active-track');
                     return;
                 }
 
-                // Pause global audio if switching
-                if (currentlyPlayingAudio && currentlyPlayingAudio !== audioEl) {
+                // Global reset for all players/tracks
+                if (currentlyPlayingAudio) {
                     currentlyPlayingAudio.pause();
-                    if (currentlyPlayingBtn) {
-                        currentlyPlayingBtn.textContent = '▶';
-                        currentlyPlayingBtn.classList.remove('playing');
-                    }
                 }
-
-                // Reset all buttons in this card
-                playBtnsInCard.forEach(btn => {
+                allBtnsInSite.forEach(btn => {
                     btn.textContent = '▶';
                     btn.classList.remove('playing');
                 });
+                allItemsInSite.forEach(i => i.classList.remove('active-track'));
 
                 // Set new track
                 if (audioEl.src !== window.location.origin + '/' + src) {
                     audioEl.src = src;
+                    audioEl.load(); // Ensure metadata is loaded for new src
                     npTitle.textContent = title;
                     timeTotal.textContent = totalLength;
-                    // Reset progress immediately for visuals
+
                     const progressFill = playlistCard.querySelector('.progress-fill');
                     const timeCurrent = playlistCard.querySelector('.time-current');
                     progressFill.style.width = '0%';
@@ -127,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(() => {
                         playBtn.textContent = '⏸';
                         playBtn.classList.add('playing');
+                        item.classList.add('active-track');
                         currentlyPlayingAudio = audioEl;
                         currentlyPlayingBtn = playBtn;
                     })
@@ -134,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Setup time updates for each player
+        // Setup time updates and Autoplay for each player
         const players = document.querySelectorAll('.custom-audio-player');
         players.forEach(player => {
             const audio = player.querySelector('.html5-audio');
@@ -154,12 +152,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             audio.addEventListener('ended', () => {
-                if (currentlyPlayingBtn) {
-                    currentlyPlayingBtn.textContent = '▶';
-                    currentlyPlayingBtn.classList.remove('playing');
+                // Find current track item to find the next one
+                const playlistCard = player.closest('.playlist-card');
+                const activeItem = playlistCard.querySelector('.track-item.active-track');
+
+                if (activeItem) {
+                    const nextItem = activeItem.nextElementSibling;
+                    if (nextItem && nextItem.classList.contains('track-item')) {
+                        // Autoplay next track
+                        nextItem.click();
+                    } else {
+                        // End of playlist
+                        if (currentlyPlayingBtn) {
+                            currentlyPlayingBtn.textContent = '▶';
+                            currentlyPlayingBtn.classList.remove('playing');
+                        }
+                        activeItem.classList.remove('active-track');
+                        progressFill.style.width = '0%';
+                        timeCurrent.textContent = '0:00';
+                    }
                 }
-                progressFill.style.width = '0%';
-                timeCurrent.textContent = '0:00';
             });
 
             progressBar.addEventListener('click', (e) => {
