@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('photos-grid');
     const titleEl = document.getElementById('album-title');
 
-    fetch('photos.json?v={{VERSION}}')
+    // Smart versioning fallback for local dev
+    const version = '{{VERSION}}';
+    const fetchUrl = `photos.json?v=${version === '{{VERSION}}' ? Date.now() : version}`;
+
+    fetch(fetchUrl)
         .then(response => {
             if (!response.ok) throw new Error('Neizdevās ielādēt json datus.');
             return response.json();

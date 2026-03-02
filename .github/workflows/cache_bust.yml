@@ -35,22 +35,16 @@ jobs:
           VERSION=$(git rev-parse --short HEAD)
           echo "Busting cache with version: $VERSION"
           
-          # Replace placeholder in ALL HTML files
+          # Replace placeholder in ALL HTML and JS files
           find . -name "*.html" -exec sed -i "s/{{VERSION}}/$VERSION/g" {} +
+          find . -name "*.js" -exec sed -i "s/{{VERSION}}/$VERSION/g" {} +
           
           # Append version to major assets in CSS
           sed -i "s/2001_locmelis.jpg/2001_locmelis.jpg?v=$VERSION/g" style.css
           sed -i "s/bird.gif/bird.gif?v=$VERSION/g" style.css
           
-          # Append version to JSON feed in player.js and video_player.js
-          sed -i "s/sounds.json/sounds.json?v=$VERSION/g" player.js
-          sed -i "s/videos.json/videos.json?v=$VERSION/g" video_player.js
-
-          # Append version to image gallery scripts
-          sed -i "s/photos.json/photos.json?v=$VERSION/g" photos.js
-          sed -i "s/photos.json/photos.json?v=$VERSION/g" photos_detail.js
-          sed -i "s/photos.js/photos.js?v=$VERSION/g" photos.html
-          sed -i "s/photos_detail.js/photos_detail.js?v=$VERSION/g" photos_detail.html
+          # Rename and version JSON feeds in JS
+          sed -i "s/videos_list.json/videos_list.json?v=$VERSION/g" video_player.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

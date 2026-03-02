@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentlyPlayingAudio = null;
     let currentlyPlayingBtn = null;
 
-    fetch('sounds.json')
+    // Smart versioning fallback for local dev
+    const version = '{{VERSION}}';
+    const fetchUrl = `sounds.json?v=${version === '{{VERSION}}' ? Date.now() : version}`;
+
+    fetch(fetchUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error('sounds.json not found. Did you run generate_sounds.py?');

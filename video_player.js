@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('videos-container');
 
-    // Using a simple fetch with local dev fallback for JSON versioning
-    fetch('videos.json?v={{VERSION}}')
+    // Smart versioning: use {{VERSION}} in production, fallback to timestamp in local dev
+    const version = '{{VERSION}}';
+    const fetchUrl = `videos_list.json?v=${version === '{{VERSION}}' ? Date.now() : version}`;
+
+    fetch(fetchUrl)
         .then(response => {
             if (!response.ok) {
-                // Try without version param in case of local testing if the server complains, though it shouldn't
                 throw new Error('videos.json not found.');
             }
             return response.json();

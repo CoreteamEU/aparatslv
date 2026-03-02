@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('albums-container');
 
-    fetch('photos.json?v={{VERSION}}')
+    // Smart versioning fallback for local dev
+    const version = '{{VERSION}}';
+    const fetchUrl = `photos.json?v=${version === '{{VERSION}}' ? Date.now() : version}`;
+
+    fetch(fetchUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error('photos.json could not be loaded.');

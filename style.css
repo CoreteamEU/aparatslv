@@ -920,6 +920,10 @@ h1 {
     color: #4267B2;
 }
 
+.social-icon.youtube:hover {
+    color: #FF0000;
+}
+
 /* Responsive pielāgojumi galerijām */
 @media (max-width: 768px) {
     .albums-grid {
