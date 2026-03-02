@@ -1,0 +1,71 @@
+[
+    {
+        "id": ".",
+        "title": "Photos",
+        "cover": "photos/megjtelpa_sirups_Maartinjsh_Purvinjsh.jpg",
+        "images": [
+            "photos/megjtelpa_sirups_Maartinjsh_Purvinjsh.jpg"
+        ]
+    },
+    {
+        "id": "koncerti/bildes2000",
+        "title": "Bildes2000",
+        "cover": "photos/koncerti/bildes2000/01_juris_serious.jpg",
+        "images": [
+            "photos/koncerti/bildes2000/01_juris_serious.jpg",
+            "photos/koncerti/bildes2000/02_peteris_mouth_wide_open_as_usual.jpg",
+            "photos/koncerti/bildes2000/03_dj_roberts_larionovs.jpg",
+            "photos/koncerti/bildes2000/04_mareks.jpg",
+            "photos/koncerti/bildes2000/05_AAAA.jpg"
+        ]
+    },
+    {
+        "id": "koncerti/metro_ligo",
+        "title": "Metro Ligo",
+        "cover": "photos/koncerti/metro_ligo/00_peteris_guitarer.jpg",
+        "images": [
+            "photos/koncerti/metro_ligo/00_peteris_guitarer.jpg",
+            "photos/koncerti/metro_ligo/01_peteris_guitarer_absalutli.jpg",
+            "photos/koncerti/metro_ligo/02_CEHO.jpg",
+            "photos/koncerti/metro_ligo/03_mareks_balso.jpg",
+            "photos/koncerti/metro_ligo/04_opaa.jpg",
+            "photos/koncerti/metro_ligo/05_grupa.jpg"
+        ]
+    },
+    {
+        "id": "koncerti/pulkvedis",
+        "title": "Pulkvedis",
+        "cover": "photos/koncerti/pulkvedis/01_fans.jpg",
+        "images": [
+            "photos/koncerti/pulkvedis/01_fans.jpg",
+            "photos/koncerti/pulkvedis/02_mareks_big_bass_kicks_aaa.jpg",
+            "photos/koncerti/pulkvedis/03_roberts_larionovs_out.jpg",
+            "photos/koncerti/pulkvedis/04_juris_wired.jpg",
+            "photos/koncerti/pulkvedis/05_santa_rabbit_style.jpg",
+            "photos/koncerti/pulkvedis/06_rakstar_totale.jpg",
+            "photos/koncerti/pulkvedis/07_roberts_larionovs_even_more.jpg",
+            "photos/koncerti/pulkvedis/08_mareks_microfone_eat.jpg"
+        ]
+    },
+    {
+        "id": "koncerti/tonus",
+        "title": "Tonus",
+        "cover": "photos/koncerti/tonus/01_peteris_sit.jpg",
+        "images": [
+            "photos/koncerti/tonus/01_peteris_sit.jpg",
+            "photos/koncerti/tonus/02_juris_screwing.jpg",
+            "photos/koncerti/tonus/03_juris_plug.jpg",
+            "photos/koncerti/tonus/04_peteris_mad.jpg",
+            "photos/koncerti/tonus/05_mareks_ilga.jpg",
+            "photos/koncerti/tonus/06_juris_falling.jpg",
+            "photos/koncerti/tonus/07_guitaristi.jpg",
+            "photos/koncerti/tonus/08_fans.jpg",
+            "photos/koncerti/tonus/09_dziedatajas.jpg",
+            "photos/koncerti/tonus/10_peteris_tuning.jpg",
+            "photos/koncerti/tonus/11_juris_mouth_open.jpg",
+            "photos/koncerti/tonus/12_zonchix_stick.jpg",
+            "photos/koncerti/tonus/13_peteris_talking_to_fans.jpg",
+            "photos/koncerti/tonus/14_juris_peteris_singing.jpg"
+        ]
+    }
+]

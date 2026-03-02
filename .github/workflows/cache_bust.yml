@@ -46,6 +46,12 @@ jobs:
           sed -i "s/sounds.json/sounds.json?v=$VERSION/g" player.js
           sed -i "s/videos.json/videos.json?v=$VERSION/g" video_player.js
 
+          # Append version to image gallery scripts
+          sed -i "s/photos.json/photos.json?v=$VERSION/g" photos.js
+          sed -i "s/photos.json/photos.json?v=$VERSION/g" photos_detail.js
+          sed -i "s/photos.js/photos.js?v=$VERSION/g" photos.html
+          sed -i "s/photos_detail.js/photos_detail.js?v=$VERSION/g" photos_detail.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

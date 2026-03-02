@@ -699,3 +699,211 @@ h1 {
         padding: 0.8rem 1.5rem !important;
     }
 }
+
+/* ============================== */
+/* BILDES (GALERIJA) SADAĻA       */
+/* ============================== */
+
+/* Albumu Saraksts (photos.html) */
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.album-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.album-cover-wrapper {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+}
+
+.album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.album-card:hover .album-cover {
+    transform: scale(1.05);
+}
+
+.album-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.album-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.album-count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Konkrēta Albuma Skats (photos_detail.html) */
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.photo-thumbnail {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.photo-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.photo-thumbnail:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.photo-thumbnail:hover img {
+    opacity: 0.8;
+}
+
+/* Lightbox Modal Player */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--accent);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 0.5rem;
+    transition: all 0.3s;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.prev-btn {
+    left: -60px;
+}
+
+.next-btn {
+    right: -60px;
+}
+
+.lightbox-caption {
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Responsive pielāgojumi galerijām */
+@media (max-width: 768px) {
+    .albums-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+}
