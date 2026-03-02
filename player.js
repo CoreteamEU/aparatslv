@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <div class="custom-audio-player" id="player-${index}">
                     <div class="now-playing">
-                        <span class="np-label">Skan:</span> <span class="np-title">---</span>
+                        <span class="np-title">Nospied uz kādu dziesmu...</span>
                     </div>
                     <div class="progress-container">
                         <span class="time-current">0:00</span>
