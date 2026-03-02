@@ -1,0 +1,48 @@
+[
+    {
+        "title": "Radio Knz. Dzīvais akustiskais. 2000.g",
+        "description": "Akustiskais koncerts radio KNZ 2000.g",
+        "tracks": [
+            {
+                "title": "1. Intro",
+                "file": "mp3/knc_unplugged_2000/1-Intro.mp3",
+                "length": "0:53"
+            },
+            {
+                "title": "2. Miers",
+                "file": "mp3/knc_unplugged_2000/2-Miers.mp3",
+                "length": "3:40"
+            },
+            {
+                "title": "3. Zham Zham Sapnis",
+                "file": "mp3/knc_unplugged_2000/3-Zham_Zham_sapnis.mp3",
+                "length": "3:31"
+            },
+            {
+                "title": "4. Cvetochki Staasts",
+                "file": "mp3/knc_unplugged_2000/4-Cvetochki_staasts.mp3",
+                "length": "1:25"
+            },
+            {
+                "title": "5. Cvetochki",
+                "file": "mp3/knc_unplugged_2000/5-Cvetochki.mp3",
+                "length": "3:36"
+            },
+            {
+                "title": "6. Sedeet Bixees",
+                "file": "mp3/knc_unplugged_2000/6-Sedeet_bixees.mp3",
+                "length": "2:52"
+            },
+            {
+                "title": "7. Miilestiibas Doktors",
+                "file": "mp3/knc_unplugged_2000/7-Miilestiibas_doktors.mp3",
+                "length": "3:19"
+            },
+            {
+                "title": "8. Aparaats",
+                "file": "mp3/knc_unplugged_2000/8-Aparaats.mp3",
+                "length": "4:25"
+            }
+        ]
+    }
+]
