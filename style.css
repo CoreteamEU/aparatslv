@@ -645,12 +645,34 @@ h1 {
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+    body {
+        padding: 1rem 0 !important;
+    }
+
+    .container {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
     .glass-card {
-        padding: 3rem 1.5rem;
+        padding: 1.5rem 0.2rem !important;
+        border-radius: 0 !important;
+        /* Edge to edge */
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    .playlist-card {
+        padding: 0.75rem 0.25rem !important;
+        border-radius: 4px !important;
+    }
+
+    .custom-audio-player {
+        padding: 0.75rem 0.25rem !important;
     }
 
     .contact-btn {
-        padding: 0.875rem 2rem;
+        padding: 0.8rem 1.5rem !important;
     }
 }
