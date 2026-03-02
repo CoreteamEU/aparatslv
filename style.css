@@ -373,7 +373,7 @@ h1 {
 }
 
 .section-title {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--accent);
     letter-spacing: 4px;
@@ -405,7 +405,7 @@ h1 {
     justify-content: space-between;
     padding: 0.5rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
 }
 
 .concert-list li:last-child {
