@@ -21,14 +21,18 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    align-items: flex-start;
+    /* Allow content to start from top and scroll */
+    padding: 4rem 1rem;
+    /* Add padding for scroll room */
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
 }
 
 /* Background Image and Grid */
 .background-image {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -41,7 +45,7 @@ body {
 }
 
 .background-grid {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
