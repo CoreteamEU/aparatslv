@@ -34,10 +34,16 @@ jobs:
         run: |
           VERSION=$(git rev-parse --short HEAD)
           echo "Busting cache with version: $VERSION"
-          # Replace placeholder in HTML
-          sed -i "s/{{VERSION}}/$VERSION/g" index.html
-          # Append version to image in CSS
+          
+          # Replace placeholder in ALL HTML files
+          find . -name "*.html" -exec sed -i "s/{{VERSION}}/$VERSION/g" {} +
+          
+          # Append version to major assets in CSS
           sed -i "s/2001_locmelis.jpg/2001_locmelis.jpg?v=$VERSION/g" style.css
+          sed -i "s/bird.gif/bird.gif?v=$VERSION/g" style.css
+          
+          # Append version to JSON feed in player.js
+          sed -i "s/sounds.json/sounds.json?v=$VERSION/g" player.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
