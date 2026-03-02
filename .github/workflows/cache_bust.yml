@@ -42,8 +42,9 @@ jobs:
           sed -i "s/2001_locmelis.jpg/2001_locmelis.jpg?v=$VERSION/g" style.css
           sed -i "s/bird.gif/bird.gif?v=$VERSION/g" style.css
           
-          # Append version to JSON feed in player.js
+          # Append version to JSON feed in player.js and video_player.js
           sed -i "s/sounds.json/sounds.json?v=$VERSION/g" player.js
+          sed -i "s/videos.json/videos.json?v=$VERSION/g" video_player.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
