@@ -127,6 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         item.classList.add('active-track');
                         currentlyPlayingAudio = audioEl;
                         currentlyPlayingBtn = playBtn;
+
+                        // GA4 Event: Audio Play
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'audio_play', {
+                                'track_title': title,
+                                'playlist': playlistCard.querySelector('.playlist-title').textContent
+                            });
+                        }
                     })
                     .catch(e => console.error("Audio play failed:", e));
             });
@@ -139,6 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const progressFill = player.querySelector('.progress-fill');
             const timeCurrent = player.querySelector('.time-current');
             const progressBar = player.querySelector('.progress-bar');
+
+            // GA4 Event: Audio Pause
+            audio.addEventListener('pause', () => {
+                if (audio.currentTime > 0 && !audio.ended && typeof gtag === 'function') {
+                    const playlistCard = player.closest('.playlist-card');
+                    const activeItem = playlistCard.querySelector('.track-item.active-track');
+                    const title = activeItem ? activeItem.querySelector('.track-title').textContent : 'Unknown';
+
+                    gtag('event', 'audio_pause', {
+                        'track_title': title,
+                        'current_time': Math.floor(audio.currentTime)
+                    });
+                }
+            });
 
             audio.addEventListener('timeupdate', () => {
                 if (audio.duration) {

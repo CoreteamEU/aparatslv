@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createVideoHTML(video) {
         return `
-            <div class="playlist-card">
+            <div class="playlist-card" onclick="trackVideoClick('${video.title}')">
                 <h2 class="playlist-title">${video.title}</h2>
                 <p class="playlist-desc">${video.description}</p>
                 <div class="video-wrapper">
@@ -41,3 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 });
+
+function trackVideoClick(title) {
+    if (typeof gtag === 'function') {
+        gtag('event', 'video_view_click', {
+            'video_title': title
+        });
+    }
+}
