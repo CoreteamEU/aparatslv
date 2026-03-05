@@ -1,13 +1,5 @@
 [
     {
-        "id": ".",
-        "title": "Photos",
-        "cover": "photos/megjtelpa_sirups_Maartinjsh_Purvinjsh.jpg",
-        "images": [
-            "photos/megjtelpa_sirups_Maartinjsh_Purvinjsh.jpg"
-        ]
-    },
-    {
         "id": "koncerti/bildes2000",
         "title": "Bildes2000",
         "cover": "photos/koncerti/bildes2000/01_juris_serious.jpg",
@@ -66,6 +58,28 @@
             "photos/koncerti/tonus/12_zonchix_stick.jpg",
             "photos/koncerti/tonus/13_peteris_talking_to_fans.jpg",
             "photos/koncerti/tonus/14_juris_peteris_singing.jpg"
+        ]
+    },
+    {
+        "id": "unsorted",
+        "title": "Unsorted",
+        "cover": "photos/unsorted/!megjtelpa_sirups_Maartinjsh_Purvinjsh.jpg",
+        "images": [
+            "photos/unsorted/!megjtelpa_sirups_Maartinjsh_Purvinjsh.jpg",
+            "photos/unsorted/DSC02950.JPG",
+            "photos/unsorted/aparati.JPG",
+            "photos/unsorted/backstage.JPG",
+            "photos/unsorted/depo1.JPG",
+            "photos/unsorted/depo_rudaks.JPG",
+            "photos/unsorted/duo.JPG",
+            "photos/unsorted/rokas.JPG",
+            "photos/unsorted/rokas2.JPG",
+            "photos/unsorted/saldus.JPG",
+            "photos/unsorted/saldus2.JPG",
+            "photos/unsorted/saldus3.JPG",
+            "photos/unsorted/saldus4.JPG",
+            "photos/unsorted/stage1.JPG",
+            "photos/unsorted/stage2.JPG"
         ]
     }
 ]
