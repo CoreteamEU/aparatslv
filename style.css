@@ -855,20 +855,18 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 2rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 1.5rem;
     cursor: pointer;
-    padding: 1rem 0.5rem;
+    padding: 1rem;
     transition: all 0.3s;
-    border-radius: 4px;
-    backdrop-filter: blur(5px);
 }
 
 .nav-btn:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    color: white;
+    background: transparent;
 }
 
 .prev-btn {
