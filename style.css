@@ -405,9 +405,30 @@ h1 {
 .concert-list li {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 1.15rem;
+    padding: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+.concert-list li:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.concert-list li.concert-item-detailed {
+    display: block;
+    text-align: left;
+}
+
+.concert-list li.concert-item-detailed .concert-info-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.concert-details {
+    padding-left: 2.5rem;
+    /* Shifting details further to the right */
+    text-align: left;
 }
 
 .concert-list li:last-child {

@@ -9,7 +9,16 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <link rel="canonical" href="https://aparats.lv/">
-    <link rel="stylesheet" href="style.css?v={{VERSION}}">
+    <script>
+        (function () {
+            const v = '{{VERSION}}';
+            const ver = v === '{{VERSION}}' ? Date.now() : v;
+            document.write('<link rel="stylesheet" href="style.css?v=' + ver + '">');
+        })();
+    </script>
+    <noscript>
+        <link rel="stylesheet" href="style.css?v={{VERSION}}">
+    </noscript>
 
     <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +51,21 @@
             <div class="concerts">
                 <h2 class="section-title">KONCERTI 2026</h2>
                 <ul class="concert-list">
-                    <li><span class="date">8. jūlijs</span> <span class="location">Rīga</span></li>
+                    <li class="concert-item-detailed"
+                        style="cursor: pointer; border-bottom: 1px solid rgba(255, 255, 255, 0.1);"
+                        onclick="window.location.href='https://ladidadi.lv/';">
+                        <div class="concert-info-top">
+                            <span class="date">8. jūlijs</span>
+                            <span class="location">Rīga</span>
+                        </div>
+                        <div class="concert-details">
+                            <span class="description"
+                                style="font-size: 0.95em; opacity: 0.9; display: block; margin-bottom: 0.8rem; text-align: left; color: var(--accent);">"Ladidadi"
+                                festivāls</span>
+                            <img src="images/ladidadi.jpg" alt="Ladidadi Fest"
+                                style="max-width: 100%; border-radius: 8px; margin-top: 0.8rem;">
+                        </div>
+                    </li>
                     <li><span class="date">17. jūlijs</span> <span class="location">ārpus Rīgas</span></li>
                     <li><span class="date">31. jūlijs</span> <span class="location">Liepāja</span></li>
                 </ul>
