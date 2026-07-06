@@ -1,6 +1,6 @@
 [
     {
-        "title": "Radio Knz. Dzīvais akustiskais. 2000.g",
+        "title": "Radio Knz. Dz\u012bvais akustiskais. 2000.g",
         "description": "Akustiskais koncerts radio KNZ 2000.g",
         "tracks": [
             {
@@ -42,6 +42,67 @@
                 "title": "8. Aparaats",
                 "file": "mp3/knc_unplugged_2000/8-Aparaats.mp3",
                 "length": "4:25"
+            }
+        ]
+    },
+    {
+        "title": "Midi Davis",
+        "description": "Midi Davis Universe",
+        "tracks": [
+            {
+                "title": "0. Midi Davis Intro",
+                "file": "mp3/midi_davis/00_midi_davis_intro.mp3",
+                "length": "0:22"
+            },
+            {
+                "title": "1. Midi Davis Bed Of Roses",
+                "file": "mp3/midi_davis/01_midi_davis_bed_of_roses.mp3",
+                "length": "5:14"
+            },
+            {
+                "title": "2. Midi Davis Aeroplane",
+                "file": "mp3/midi_davis/02_midi_davis_aeroplane.mp3",
+                "length": "4:53"
+            },
+            {
+                "title": "3. Midi Davis You Are Always On My Mind",
+                "file": "mp3/midi_davis/03_midi_davis_you_are_always_on_my_mind.mp3",
+                "length": "3:31"
+            },
+            {
+                "title": "4. Midi Davis Angie",
+                "file": "mp3/midi_davis/04_midi_davis_angie.mp3",
+                "length": "4:10"
+            },
+            {
+                "title": "5. Midi Davis We Are The Champions",
+                "file": "mp3/midi_davis/05_midi_davis_we_are_the_champions.mp3",
+                "length": "2:52"
+            },
+            {
+                "title": "6. Midi Davis You Are Not Alone",
+                "file": "mp3/midi_davis/06_midi_davis_you_are_not_alone.mp3",
+                "length": "5:44"
+            },
+            {
+                "title": "7. Midi Davis I Will Always Love You",
+                "file": "mp3/midi_davis/07_midi_davis_i_will_always_love_you.mp3",
+                "length": "3:28"
+            },
+            {
+                "title": "8. Midi Davis Shiny Happy People",
+                "file": "mp3/midi_davis/08_midi_davis_shiny_happy_people.mp3",
+                "length": "3:18"
+            },
+            {
+                "title": "9. Midi Davis Lady In Red",
+                "file": "mp3/midi_davis/09_midi_davis_lady_in_red.mp3",
+                "length": "4:13"
+            },
+            {
+                "title": "10. Midi Davis Easy",
+                "file": "mp3/midi_davis/10_midi_davis_easy.mp3",
+                "length": "4:15"
             }
         ]
     }
